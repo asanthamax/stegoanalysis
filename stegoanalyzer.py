@@ -36,7 +36,7 @@ dataset, labels = preprocess.preprepare_data()
 
 x_train, x_test, y_train, y_test = train_test_split(dataset, labels, test_size=0.2, random_state=10)
 earlyStopping = EarlyStopping(monitor='val_loss', min_delta=0.001, patience=10, mode='auto')
-tensorboard = TensorBoard(log_dir='logs/{}'.format(time()), histogram_freq=10, batch_size=5, write_images=True, embeddings_freq=10)
+tensorboard = TensorBoard(log_dir='logs/{}'.format(time()), histogram_freq=10, batch_size=32, write_images=True, embeddings_freq=10)
 
 history = model.fit(x_train, y_train, batch_size=32, nb_epoch=500, callbacks=[earlyStopping, tensorboard])
 
